@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+      <ion-button (click)="reorderDisabled= ! reorderDisabled">
+        <ion-icon
+          name="reorder-three"
+          slot="icon-only"
+          [color]="reorderDisabled?'primary':'danger'"
+        ></ion-icon>
+      </ion-button>
+      <ion-button (click)="cheatMode= ! cheatMode">
+        <ion-icon
+          name="gift"
+          slot="icon-only"
+          [color]="cheatMode?'danger':'success'"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>animals</ion-title>
+    <ion-buttons slot="end">
+      <ion-chip [color]="tries<3?'primary':'danger'">{{ tries }}</ion-chip>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list lines="full" *ngIf="started">
+    <ion-reorder-group
+      [disabled]="reorderDisabled"
+      (ionItemReorder)="reorderAnimal($event)"
+    >
+      <ion-item
+        *ngFor="let animal of animalList; let pos = index"
+        (click)="guess(pos)"
+      >
+        <ion-label>
+          <h4>{{ animal.title }}</h4>
+          <p>{{ animal.desc }}</p>
+        </ion-label>
+        <ion-avatar slot="start">
+          <ion-img src="/assets{{ animal.image }}"></ion-img>
+        </ion-avatar>
+
+        <ion-reorder slot="end"></ion-reorder>
+
+        <ion-icon
+          name="musical-notes"
+          slot="end"
+          color="medium"
+          *ngIf="cheatMode && animal.playing"
+        ></ion-icon>
+
+        <ion-icon
+          name="chevron-forward"
+          slot="end"
+          routerLink="/animal-details/{{ pos }}"
+        ></ion-icon>
+      </ion-item>
+    </ion-reorder-group>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button
+      expand="block"
+      (click)="play()"
+      [color]="started?'success':'primary'"
+      >JOUER</ion-button
+    >
+  </ion-toolbar>
+</ion-footer>

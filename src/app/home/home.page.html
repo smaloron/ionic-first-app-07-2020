@@ -1,20 +1,45 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       Blank
     </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button color="warning" mode="md">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+      <ion-button color="warning" mode="md">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-button color="warning" mode="md" slot="start">
+      <ion-icon name="trash"></ion-icon>
+    </ion-button>
+
+    <ion-button slot="end" routerLink="/settings">
+      <ion-icon name="settings" slot="icon-only"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content [fullscreen]="true" class="ion-padding" color="light">
+  <ion-button
+    routerLink="/animals"
+    expand="block"
+    [color]="settings.preferedColor"
+    >Jeu des animaux</ion-button
+  >
+  <ion-button expand="block" routerLink="/hello/Jane">
+    Hello Jane
+  </ion-button>
+  <ion-button expand="block" routerLink="/hello/Bob">
+    Hello Bob
+  </ion-button>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="success">
+    <ion-title>Hello</ion-title>
+  </ion-toolbar>
+</ion-footer>

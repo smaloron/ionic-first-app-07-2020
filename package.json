@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
+  "repository": {
+    "git": "https://github.com/smaloron/ionic-first-app-07-2020.git"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

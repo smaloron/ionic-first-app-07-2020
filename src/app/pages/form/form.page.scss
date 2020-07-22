@@ -1,0 +1,18 @@
+.text {
+  font-size: var(--text-font-size);
+}
+
+ion-label {
+  font-size: var(--text-font-size);
+}
+
+ion-content {
+  --background: url(/assets/img/fond.jpg);
+}
+
+ion-list,
+ion-item,
+ion-label {
+  background-color: transparent !important;
+  --background: transparent;
+}
